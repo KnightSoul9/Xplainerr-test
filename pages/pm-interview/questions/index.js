@@ -6,7 +6,7 @@ import path from "path";
 import matter from "gray-matter";
 import CommonHead from "@/src/components/v1/Shared/CommonHead";
 import PageLayout from "@/src/layout/PageLayout";
-
+import { BookOpen } from 'lucide-react';
 // Category icons (could be replaced with actual SVG icons)
 const CategoryIcon = ({ category }) => {
   // Simple function to show emoji icons based on category
@@ -133,7 +133,7 @@ export default function PMInterviewQuestions({ questions }) {
                       {question.title}
                     </h2>
 
-                    <div className="mb-6 flex flex-wrap gap-2">
+                    <div className="mb-10 flex flex-wrap gap-2">
                     {/* inline-flex items-center border px-2.5 py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm font-normal text-xs bg-amber-50 text-amber-700 hover:bg-amber-100 border-amber-200 */}
                       <span
                         className={`rounded-md px-3 py-1 text-xs font-medium 
@@ -169,7 +169,7 @@ export default function PMInterviewQuestions({ questions }) {
 
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-1.5 text-sm text-gray-500">
-                        <span>⏱️</span> {question.readTime} min read
+                      <BookOpen className="w-4 h-4" />{question.readTime} min read
                       </span>
                       <Link
                         href={`/pm-interview/questions/${question.slug}`}
