@@ -116,50 +116,51 @@ export default function PMInterviewQuestions({ questions }) {
             ))}
           </div>
 
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
             {filteredQuestions.length > 0 ? (
               filteredQuestions.map((question) => (
                 <div
                   key={question.slug}
-                  className="flex min-h-[220px] flex-col overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-b from-[#aabbf5] from-60% to-white to-40% transition-all hover:-translate-y-1 hover:shadow-md"
+                  className="flex min-h-[200px] shadow-sm flex-col overflow-hidden rounded-md border border-blue-200 bg-gradient-to-b from-blue-50 from-60% to-white to-40% transition-all hover:-translate-y-1 hover:shadow-md"
                 >
                   <div className="flex h-full flex-col p-6">
-                    <div className="mb-3 flex items-center gap-1.5 text-sm font-medium text-[#284df2]">
+                    <div className="mb-1 flex items-center gap-1 text-sm font-medium text-[#284df2]">
                       <CategoryIcon category={question.category} />
                       <span>{question.categoryDisplayName}</span>
                     </div>
 
-                    <h2 className="mb-4 flex-grow text-lg font-semibold text-gray-900">
+                    <h2 className="flex text-xl font-bold text-gray-900 mb-2">
                       {question.title}
                     </h2>
 
                     <div className="mb-6 flex flex-wrap gap-2">
+                    {/* inline-flex items-center border px-2.5 py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm font-normal text-xs bg-amber-50 text-amber-700 hover:bg-amber-100 border-amber-200 */}
                       <span
-                        className={`rounded-full px-3 py-1 text-xs font-medium
-                    ${
+                        className={`rounded-md px-3 py-1 text-xs font-medium 
+                    ${ 
                       question.difficulty === "Medium"
-                        ? "bg-amber-50 text-amber-700"
+                        ? "bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200"
                         : ""
                     }
                     ${
                       question.difficulty === "Hard"
-                        ? "bg-red-50 text-red-700"
+                        ? "bg-red-50 text-red-700 border hover:bg-red-100 border-red-200"
                         : ""
                     }
                     ${
                       question.difficulty === "Easy"
-                        ? "bg-emerald-50 text-emerald-700"
+                        ? "bg-emerald-50 text-emerald-700 border hover:bg-green-100 border-green-200"
                         : ""
                     }`}
                       >
                         {question.difficulty}
                       </span>
                       <span
-                        className={`rounded-full px-3 py-1 text-xs font-medium
+                        className={`rounded-md px-3 py-1 text-xs font-medium
                     ${
                       question.isPremium
-                        ? "bg-purple-50 text-purple-700"
-                        : "bg-cyan-50 text-cyan-700"
+                        ? "bg-purple-50 text-purple-700 border hover:bg-purple-100 border-purple-200"
+                        : "bg-cyan-50 text-cyan-700 border hover:bg-green-100 border-green-200"
                     }`}
                       >
                         {question.isPremium ? "Premium" : "Free"}
